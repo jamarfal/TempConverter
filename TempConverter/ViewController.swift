@@ -14,12 +14,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var tempSwitch: UISwitch!
     @IBOutlet weak var resultTempLabel: UILabel!
     
-    
-    
+    var converter:Converter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.converter = FahrenheitConversor();
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +30,29 @@ class ViewController: UIViewController {
 
 
     @IBAction func converterAction(_ sender: UIButton) {
+        let temperature:Float = toFloat(floatNumberStr: tempTextField.text!)
+        
+        resultTempLabel.text =  toString(floatNumber: self.converter.convert(temperatureFrom: temperature)) + "ºC";
+        
+    }
+    
+    @IBAction func onSwitchChanged(_ sender: UISwitch) {
+        if sender.isOn {
+            self.converter = FahrenheitConversor();
+        }else{
+            self.converter = CelciusConversor();
+        }
+    }
+    
+    
+    func toFloat(floatNumberStr:String) -> Float
+    {
+        return NSString(string: floatNumberStr).floatValue
+    }
+    
+    func toString(floatNumber:Float) -> String
+    {
+        return NSString(format: "%.1f", floatNumber) as String
     }
 }
 
