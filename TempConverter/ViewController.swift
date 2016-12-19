@@ -10,6 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var tempTextField: UITextField!
+    @IBOutlet weak var tempSwitch: UISwitch!
+    @IBOutlet weak var resultTempLabel: UILabel!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,5 +28,7 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func converterAction(_ sender: UIButton) {
+    }
 }
 
