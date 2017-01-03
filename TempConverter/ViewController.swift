@@ -34,6 +34,8 @@ class ViewController: UIViewController {
         
         resultTempLabel.text =  toString(floatNumber: self.converter.convert(temperatureFrom: temperature)) + "ºC";
         
+        self.tempTextField.text = "";
+        
     }
     
     @IBAction func onSwitchChanged(_ sender: UISwitch) {
